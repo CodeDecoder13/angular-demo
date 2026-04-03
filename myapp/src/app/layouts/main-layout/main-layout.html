@@ -1,0 +1,49 @@
+<div class="layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2 class="text-xl font-bold text-white">MyApp</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <a routerLink="/dashboard"
+         routerLinkActive="active"
+         class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7" rx="1" />
+          <rect x="14" y="3" width="7" height="7" rx="1" />
+          <rect x="3" y="14" width="7" height="7" rx="1" />
+          <rect x="14" y="14" width="7" height="7" rx="1" />
+        </svg>
+        Dashboard
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main content area -->
+  <div class="main-area">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <h1 class="text-lg font-semibold text-gray-800">Dashboard</h1>
+      </div>
+      <div class="header-right">
+        @if (auth.user(); as user) {
+          <span class="user-name">{{ user.name }}</span>
+        }
+        <button (click)="logout()" class="logout-btn">
+          Logout
+        </button>
+      </div>
+    </header>
+
+    <!-- Page content -->
+    <main class="content">
+      <router-outlet />
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 MyApp. All rights reserved.</p>
+    </footer>
+  </div>
+</div>
